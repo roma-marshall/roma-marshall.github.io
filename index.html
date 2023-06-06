@@ -40,7 +40,8 @@
         <div class="space-y-2">
             <p>The most important thing is to be able to distinguish the most important from everything else.</p>
             <p>Sometimes “nothing” is better than “something”</p>
-            <p>Everything can be done quickly. Contrary to popular belief, work is either done quickly and well or long and badly.</p>
+            <p>Everything can be done quickly. Contrary to popular belief, work is either done quickly and well or long
+                and badly.</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -72,8 +73,28 @@
             <p>Contact</p>
         </div>
         <div class="space-y-2">
-            <p>Email </p>
-            <p>GitHub </p>
+            <p class="flex">
+                Email&nbsp;
+                <input class="hidden" type="text" value="roman_lytin@gmx.de" id="email">
+                <button onclick="copyEmail()" class="flex group">
+                    <span class="group-hover:text-gray-600">roman_lytin@gmx.de</span>
+                    <svg class="ml-2 mt-1 w-4 h-4" viewBox="0 0 32 32">
+                        <path class="group-hover:fill-gray-600" d="M 0,3.2 C 0,1.4326827 1.4326827,0 3.2,0 h 16 c 1.767467,0 3.2,1.4326827 3.2,3.2 v 6.4 h 6.4 c 1.767467,0 3.2,1.432683 3.2,3.2 v 16 c 0,1.767467 -1.432533,3.2 -3.2,3.2 h -16 C 11.032683,32 9.6,30.567467 9.6,28.8 V 22.4 H 3.2 C 1.4326827,22.4 0,20.967467 0,19.2 Z m 12.8,19.2 v 6.4 h 16 v -16 h -6.4 v 6.4 c 0,1.767467 -1.432533,3.2 -3.2,3.2 z m 6.4,-3.2 v -16 h -16 v 16 z"
+                              fill="#111" stroke="#fff">
+                        </path>
+                    </svg>
+                </button>
+            </p>
+
+            <p class="flex">
+                GitHub&nbsp;
+                <a href="#" target="_blank" class="hover:underline">roma-marshall</a>
+                <svg class="ml-0.5 mt-0.5" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.5 3C3.22386 3 3 3.22386 3 3.5C3 3.77614 3.22386 4 3.5 4V3ZM8.5 3.5H9C9 3.22386 8.77614 3 8.5 3V3.5ZM8 8.5C8 8.77614 8.22386 9 8.5 9C8.77614 9 9 8.77614 9 8.5H8ZM2.64645 8.64645C2.45118 8.84171 2.45118 9.15829 2.64645 9.35355C2.84171 9.54882 3.15829 9.54882 3.35355 9.35355L2.64645 8.64645ZM3.5 4H8.5V3H3.5V4ZM8 3.5V8.5H9V3.5H8ZM8.14645 3.14645L2.64645 8.64645L3.35355 9.35355L8.85355 3.85355L8.14645 3.14645Z"
+                          fill="#111">
+                    </path>
+                </svg>
+            </p>
             <p>CV <a href="#" class="underline">l.roma</a></p>
             <p>LinkedIn </p>
             <p>Lower Saxony, Germany <span id="date"></span></p>
@@ -93,6 +114,16 @@
     }
 
     setInterval(clockTick, 1000);
+
+
+    function copyEmail() {
+        let copyText = document.getElementById("email");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+
+        // alert("Copied the text: " + copyText.value);
+    }
 </script>
 
 <style type="text/css">
