@@ -22,13 +22,13 @@ addEventListener('DOMContentLoaded', async () => {
     const responseAlfa = await fetch(urlAlfa)
     const data = await responseAlfa.json()
 
-    const urlBeta = `https://ip-api.com/json/${data['ip']}?fields=status,message,country,countryCode`
+    const urlBeta = `https://api.ipbase.com/v1/json/${data['ip']}`
     const responseBeta = await fetch(urlBeta)
     const ipInfo = await responseBeta.json()
 
-    if (data['ip'] && (ipInfo['countryCode'] !== 'DE'
-        && ipInfo['countryCode'] !== 'CH'
-        && ipInfo['countryCode'] !== 'AT')) {
+    if (data['ip'] && (ipInfo['country_code'] !== 'DE'
+        && ipInfo['country_code'] !== 'CH'
+        && ipInfo['country_code'] !== 'AT')) {
         document.querySelectorAll('p[data-aria="contact"]').forEach(item => item.remove())
     }
 })
