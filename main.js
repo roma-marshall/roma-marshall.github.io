@@ -29,3 +29,19 @@ function copyEmail() {
 
     // alert("Copied the text: " + copyText.value);
 }
+
+addEventListener('DOMContentLoaded', async () => {
+    const urlAlfa = `https://api.ipify.org?format=json`
+    const responseAlfa = await fetch(urlAlfa)
+    const data = await responseAlfa.json()
+
+    const urlBeta = `http://ip-api.com/json/${data['ip']}?fields=status,message,country,countryCode`
+    const responseBeta = await fetch(urlBeta)
+    const ipInfo = await responseBeta.json()
+
+    if (data['ip'] && (ipInfo['countryCode'] !== 'DE'
+        && ipInfo['countryCode'] !== 'CH'
+        && ipInfo['countryCode'] !== 'AT')) {
+        document.querySelector('div[data-aria="contact"]').innerHTML = null
+    }
+})
