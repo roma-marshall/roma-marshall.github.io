@@ -22,7 +22,7 @@ addEventListener('DOMContentLoaded', async () => {
     const responseAlfa = await fetch(urlAlfa)
     const data = await responseAlfa.json()
 
-    const urlBeta = `http://ip-api.com/json/${data['ip']}?fields=status,message,country,countryCode`
+    const urlBeta = `https://ip-api.com/json/${data['ip']}?fields=status,message,country,countryCode`
     const responseBeta = await fetch(urlBeta)
     const ipInfo = await responseBeta.json()
 
