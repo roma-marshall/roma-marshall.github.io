@@ -42,6 +42,6 @@ addEventListener('DOMContentLoaded', async () => {
     if (data['ip'] && (ipInfo['countryCode'] !== 'DE'
         && ipInfo['countryCode'] !== 'CH'
         && ipInfo['countryCode'] !== 'AT')) {
-        document.querySelector('div[data-aria="contact"]').innerHTML = null
+        document.querySelectorAll('p[data-aria="contact"]').forEach(item => item.remove())
     }
 })
