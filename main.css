@@ -1,6 +1,15 @@
-::selection {
-    color: white;
-    background: black;
+@media (prefers-color-scheme: light) {
+    ::selection {
+        color: white;
+        background: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    ::selection {
+        color: beige;
+        background: darkgoldenrod;
+    }
 }
 
 body {
