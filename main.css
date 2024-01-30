@@ -16,20 +16,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-svg#flowers {
-    height: 30%;
-    top: 20%;
-    right: 12%;
-    width: 100%;
-    opacity: 0.9;
-    position: fixed;
-    z-index: -999;
-}
-
-#illustration {
-    animation: squigglevision 0.5s infinite alternate;
-}
-
 @keyframes squigglevision {
     0% {
         filter: url('#sketch-0');
