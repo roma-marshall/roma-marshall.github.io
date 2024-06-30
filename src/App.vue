@@ -35,15 +35,25 @@
         </div>
         <div class="md:w-3/4 space-y-2">
           <div v-for="child in item.content">
-            <p class="mb-2 space-x-2" v-if="isEmail || child.text != 'Email'">
+            <p class="mb-2 space-x-2" v-if="isEmail || child.text !== 'Email'">
               <span>{{ child.text }}</span>
-              <a :href="child.link" target="_blank" class="underline hover:opacity-60">{{ child.text2 }}</a>
+              <a v-if="child.text !== 'Email'" :href="child.link" target="_blank" class="underline hover:opacity-60">
+                {{ child.text2 }}
+              </a>
+              <span
+                  @click="copyEmail(child.link)"
+                  v-if="child.text === 'Email'"
+                  class="underline hover:opacity-60 cursor-pointer"
+              >
+                {{ child.text2 }}
+              </span>
             </p>
           </div>
           <p>Lower Saxony, Germany <span>{{ currentTime }}</span></p>
         </div>
       </div>
     </div>
+    <notifications position="bottom left" />
   </div>
 </template>
 
@@ -53,6 +63,23 @@ import moment from 'moment'
 import data from './data/data.js'
 import data2 from './data/data2.js'
 import data3 from './data/data3.js'
+
+import {useClipboard} from '@vueuse/core'
+import {useNotification} from '@kyvg/vue3-notification'
+
+const { copy } = useClipboard()
+const { notify }  = useNotification()
+
+const copyEmail = (email) => {
+  copy(email)
+  notify({
+    title: 'Copied!',
+    type: 'notification',
+    speed: 500,
+    duration: 1500,
+    ignoreDuplicates: true
+  })
+}
 
 const currentTime = ref()
 const updateCurrentTime = () => {
@@ -87,23 +114,3 @@ onUpdated(() => {
   setInterval(() => updateCurrentTime(), 1000);
 })
 </script>
-
-<style scoped>
-@media (prefers-color-scheme: light) {
-  ::selection {
-    color: white;
-    background: black;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  ::selection {
-    color: beige;
-    background: darkgoldenrod;
-  }
-}
-
-body {
-  font-family: 'Open Sans', sans-serif;
-}
-</style>
