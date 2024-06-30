@@ -40,6 +40,7 @@
               <a :href="child.link" target="_blank" class="underline hover:opacity-60">{{ child.text2 }}</a>
             </p>
           </div>
+          <p>Lower Saxony, Germany <span>{{ currentTime }}</span></p>
         </div>
       </div>
     </div>
@@ -47,13 +48,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUpdated } from 'vue'
+import moment from 'moment'
 import data from './data/data.js'
 import data2 from './data/data2.js'
 import data3 from './data/data3.js'
 
-const isEmail = ref(false)
+const currentTime = ref()
+const updateCurrentTime = () => {
+  currentTime.value = moment().format('LTS');
+}
 
+const isEmail = ref(false)
 const fetchData = async () => {
   const url = 'https://api.ipify.org?format=json'
   const response = await fetch(url)
@@ -71,7 +77,15 @@ const fetchData = async () => {
   )
 }
 
-onMounted(() => fetchData())
+onMounted(() => {
+  updateCurrentTime()
+  fetchData()
+})
+
+onUpdated(() => {
+  currentTime.value = moment().format("LTS");
+  setInterval(() => updateCurrentTime(), 1000);
+})
 </script>
 
 <style scoped>
