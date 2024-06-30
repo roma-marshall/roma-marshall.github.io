@@ -16,7 +16,7 @@
         <div class="mb-5 mt-16 md:my-0">
           <p>{{ item.title }}</p>
         </div>
-        <div class="md:w-3/4 space-y-7">
+        <div class="md:w-3/4 space-y-5">
           <div v-for="child in item.content">
             <p class="mb-2">
               <a :href="child.link" target="_blank" class="underline hover:opacity-60">{{ child.text }}</a>,
@@ -28,7 +28,6 @@
           </div>
         </div>
       </div>
-
 
       <div v-for="item in data3" class="grid grid-cols-1 md:grid-cols-2">
         <div class="mb-5 mt-16 md:my-0">
@@ -74,3 +73,23 @@ const fetchData = async () => {
 
 onMounted(() => fetchData())
 </script>
+
+<style scoped>
+@media (prefers-color-scheme: light) {
+  ::selection {
+    color: white;
+    background: black;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    color: beige;
+    background: darkgoldenrod;
+  }
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+</style>
