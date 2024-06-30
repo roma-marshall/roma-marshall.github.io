@@ -59,13 +59,12 @@
 
 <script setup>
 import { ref, onMounted, onUpdated } from 'vue'
+import {useClipboard} from '@vueuse/core'
+import {useNotification} from '@kyvg/vue3-notification'
 import moment from 'moment'
 import data from './data/data.js'
 import data2 from './data/data2.js'
 import data3 from './data/data3.js'
-
-import {useClipboard} from '@vueuse/core'
-import {useNotification} from '@kyvg/vue3-notification'
 
 const { copy } = useClipboard()
 const { notify }  = useNotification()
