@@ -5,7 +5,7 @@ export default [
       {
         text: 'Email',
         text2: 'roman_lytin@gmx.de',
-        link: 'mailto:roman_lytin@gmx.de'
+        link: 'roman_lytin@gmx.de'
       },
       {
         text: 'Github',
