@@ -5,7 +5,7 @@ export default [
       {
         text: 'TonView',
         date: '2024 – Now',
-        description: 'CEO at TonView: Tracking of wallets and blockchain analysis',
+        description: 'Founder at TonView: Tracking of wallets and blockchain analysis',
         link: 'https://www.tonview.xyz'
       },
       {
