@@ -3,12 +3,6 @@ export default [
     title: 'Experience',
     content: [
       {
-        text: 'TonView',
-        date: '2024 – Now',
-        description: 'Founder at TonView: Tracking of wallets and blockchain analysis',
-        link: 'https://www.tonview.xyz'
-      },
-      {
         text: 'Blackbit digital Commerce GmbH',
         date: '2022 – 2025',
         description: 'Clients: BTC Business Technology Consulting AG, Bikeleasing-Service GmbH, CRB Analyse Service GmbH, EXPRESSO Deutschland GmbH',
