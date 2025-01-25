@@ -10,7 +10,7 @@ export default [
       },
       {
         text: 'Blackbit digital Commerce GmbH',
-        date: '2022 – Now',
+        date: '2022 – 2025',
         description: 'Clients: BTC Business Technology Consulting AG, Bikeleasing-Service GmbH, CRB Analyse Service GmbH, EXPRESSO Deutschland GmbH',
         link: 'https://www.blackbit.com'
       },
